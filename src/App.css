@@ -1,0 +1,307 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+
+.personal-info, .main-page, .address-info, .company-info{
+  display: flex;
+  background:linear-gradient(to right top, #30a6af, #586775fb);
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.personal-info::before, .main-page::before{
+  content: '';
+  position: absolute;
+  width:100%;
+  height:100%;
+  background: linear-gradient(to right bottom, black, transparent);
+  top:0;
+  left:0;
+  z-index: 0;
+  transition: all .3s ease-in-out;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.main-page{
+  background:linear-gradient(to right top, #30a6af, #586775fb);;
+}
+
+.main-page::before{
+  background: transparent
+}
+
+.personal-headings{
+  font-size: 50px ;
+  font-family: roboto, sans-serif;
+  color: #fff;
+  z-index: 1;
+  background:linear-gradient(to right, white, yellow);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ margin-bottom: 35px;
+}
+
+.personal-headings h5{
+  font-size: 50px ;
+  text-align: center;
+  margin: auto;
+}
+
+
+
+.form-heading{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 50px auto;
+  height: 100%;
+  padding: 30px;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  animation: show 1s ease-in-out forwards 1s;
+  background: linear-gradient(to right top, rgba(212, 198, 198, 0.2), rgba(243, 238, 238, 0.911));
+}
+
+.form-heading form {
+  width: 70%;
+}
+
+.personal-info h5, .address-info h5, .company-info  h5{
+  font-size: 36px;
+  font-family: roboto, sans-serif;
+  color: white;
+  background:linear-gradient(to right, white, yellow);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  z-index: 5;
+  margin-bottom: 15px;
+}
+
+@keyframes show{
+  to{
+    opacity: 1;
+  }
+}
+
+ .button-div {
+    width:100%;
+    display: flex;
+    justify-content:center;
+}
+
+.button-div .btn {
+    width:auto !important;
+    padding: 10px 30px;
+    color: white;
+}
+
+.btn .fa{
+  margin-right: 10px;
+}
+
+.main-page .left-arrow, .right-arrow{
+  content: '';
+  position: absolute;
+  top:50%;
+  width:100px;
+  height:100px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 5;
+  display: flex;
+  box-shadow: 3px 3px  6px  rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items:center;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+
+.left-arrow:hover{
+    transform: translateX(30px);
+}
+
+.right-arrow:hover{
+  transform: translateX(-30px);
+}
+
+.left-arrow{
+  left: 20px;
+  transition: .3s linear;
+}
+
+.left-arrow.dissapear{
+  visibility: hidden;
+}
+
+.right-arrow.dissapear{
+  display: none;
+}
+
+.left-arrow, .right-arrow > i{
+  font-size: 30px;
+  transition: all .3s linear;
+}
+
+.right-arrow{
+  right:20px;
+}
+
+/* Steps */
+
+.counter-stage{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* .first-step, .second-step, .third-step{
+    flex-basis: 30%;
+    display: flex;
+    justify-content:space-evenly;
+    align-items:center;
+} */
+
+.steps {
+  flex-basis: 30%;
+  display: flex;
+  justify-content:space-evenly;
+  align-items:center;
+  transition: all .3s linear;
+}
+
+.steps.change h5{
+  color:white !important;
+}
+
+.counter-stage .box{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background-color: white;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  transition: all .3s linear;
+}
+
+.box.change{
+  background: linear-gradient(to right, white, yellow);
+  color: #30a6af;
+}
+
+.counter-stage .line{
+   width: 0;
+   height:5px;
+   background-color: white;
+  transition: all .3s ease-in-out;
+}
+
+.line.change{
+  width: 50%;
+}
+.third-step .line{
+  width:0;
+  height:0;
+  background-color: transparent;
+}
+
+.counter-stage h5{
+  margin-left: 10px;
+}
+
+.counter-stage i{
+    font-size: 20px;
+}
+
+/* Screen sizes */
+
+/* Mobile phone */
+@media only screen and (max-width: 786px){
+  .personal-info, .address-info, .company-info{
+    height:100%;
+    overflow: hidden;
+  }
+  .personal-headings h5{
+    font-size: 25px;
+    margin-top: 10px;
+  }
+  .line.change{
+    width:10%;
+  }
+  .form-heading{
+      width:70%;
+      padding:20px;
+      width:100%;
+  }
+
+  .form-heading form {
+    width: 100%;
+  }
+
+  .main-page .left-arrow, .right-arrow{
+    width:60px;
+    height:60px;
+    top:35%;
+    border-radius:50%;
+  }
+
+  .steps{
+    flex-basis: 40%;
+  }
+
+}
+
+/* Tablet or Ipad */
+@media only screen and (max-width: 600px){
+  .personal-info,  .address-info, .company-info{
+    height:100%;
+    overflow: hidden;
+  }
+  .personal-headings h5{
+    font-size: 15px;
+  }
+
+  .form-heading{
+    width:70%;
+    padding:20px;
+    width:100%;
+}
+
+.steps{
+  flex-basis: 30%;
+}
+
+.counter-stage h5{
+  font-size: 10px !important;
+}
+
+  .main-page h5{
+    text-align: center;
+    font-size: 27px;
+    margin-top: 10px;
+  }
+
+  .counter-stage {
+    width: 100%;
+  }
+
+.form-heading form {
+  width: 100%;
+}
+}
+
